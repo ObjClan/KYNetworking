@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1870E72FCA6D19CF076FE0D /* libPods-KYNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD045372F9ECD1FAF77695E2 /* libPods-KYNetworking.a */; };
+		EA2DBE4C226F092500A1D9C9 /* KYHttpResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2DBE4B226F092500A1D9C9 /* KYHttpResponseModel.m */; };
+		EA319508227153B900C93134 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA319507227153B900C93134 /* HttpManager.m */; };
+		EA86D1EC226D9DDF003D9A05 /* NSString+KYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EA86D1EB226D9DDF003D9A05 /* NSString+KYNetworking.m */; };
+		EAB916AC226561EF002C9061 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB916AB226561EF002C9061 /* AppDelegate.m */; };
+		EAB916AF226561EF002C9061 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB916AE226561EF002C9061 /* ViewController.m */; };
+		EAB916B2226561EF002C9061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB916B0226561EF002C9061 /* Main.storyboard */; };
+		EAB916B4226561F8002C9061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB916B3226561F8002C9061 /* Assets.xcassets */; };
+		EAB916B7226561F8002C9061 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB916B5226561F8002C9061 /* LaunchScreen.storyboard */; };
+		EAB916BA226561F8002C9061 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB916B9226561F8002C9061 /* main.m */; };
+		EAB916C322656CE9002C9061 /* KYHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB916C222656CE9002C9061 /* KYHTTPManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CDEEE57EF169099A2AF560C /* Pods-KYNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYNetworking.release.xcconfig"; path = "Target Support Files/Pods-KYNetworking/Pods-KYNetworking.release.xcconfig"; sourceTree = "<group>"; };
+		5E2C6970D44A68975FD85C07 /* Pods-KYNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYNetworking.debug.xcconfig"; path = "Target Support Files/Pods-KYNetworking/Pods-KYNetworking.debug.xcconfig"; sourceTree = "<group>"; };
+		BD045372F9ECD1FAF77695E2 /* libPods-KYNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KYNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA2DBE4A226F092500A1D9C9 /* KYHttpResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYHttpResponseModel.h; sourceTree = "<group>"; };
+		EA2DBE4B226F092500A1D9C9 /* KYHttpResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYHttpResponseModel.m; sourceTree = "<group>"; };
+		EA319506227153B900C93134 /* HttpManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
+		EA319507227153B900C93134 /* HttpManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
+		EA86D1EA226D9DDF003D9A05 /* NSString+KYNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+KYNetworking.h"; sourceTree = "<group>"; };
+		EA86D1EB226D9DDF003D9A05 /* NSString+KYNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+KYNetworking.m"; sourceTree = "<group>"; };
+		EAB916A7226561EF002C9061 /* KYNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB916AA226561EF002C9061 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EAB916AB226561EF002C9061 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EAB916AD226561EF002C9061 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EAB916AE226561EF002C9061 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EAB916B1226561EF002C9061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAB916B3226561F8002C9061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAB916B6226561F8002C9061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAB916B8226561F8002C9061 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAB916B9226561F8002C9061 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EAB916C122656CE9002C9061 /* KYHTTPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYHTTPManager.h; sourceTree = "<group>"; };
+		EAB916C222656CE9002C9061 /* KYHTTPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYHTTPManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAB916A4226561EF002C9061 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1870E72FCA6D19CF076FE0D /* libPods-KYNetworking.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		667B3349BFA1473437AC8225 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E2C6970D44A68975FD85C07 /* Pods-KYNetworking.debug.xcconfig */,
+				1CDEEE57EF169099A2AF560C /* Pods-KYNetworking.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA6E9DE4C34B50F155756825 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD045372F9ECD1FAF77695E2 /* libPods-KYNetworking.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAB9169E226561EF002C9061 = {
+			isa = PBXGroup;
+			children = (
+				EAB916A9226561EF002C9061 /* KYNetworking */,
+				EAB916A8226561EF002C9061 /* Products */,
+				667B3349BFA1473437AC8225 /* Pods */,
+				EA6E9DE4C34B50F155756825 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EAB916A8226561EF002C9061 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAB916A7226561EF002C9061 /* KYNetworking.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAB916A9226561EF002C9061 /* KYNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				EAB916C022656274002C9061 /* Classes */,
+				EAB916AA226561EF002C9061 /* AppDelegate.h */,
+				EAB916AB226561EF002C9061 /* AppDelegate.m */,
+				EAB916AD226561EF002C9061 /* ViewController.h */,
+				EAB916AE226561EF002C9061 /* ViewController.m */,
+				EA319506227153B900C93134 /* HttpManager.h */,
+				EA319507227153B900C93134 /* HttpManager.m */,
+				EAB916B0226561EF002C9061 /* Main.storyboard */,
+				EAB916B3226561F8002C9061 /* Assets.xcassets */,
+				EAB916B5226561F8002C9061 /* LaunchScreen.storyboard */,
+				EAB916B8226561F8002C9061 /* Info.plist */,
+				EAB916B9226561F8002C9061 /* main.m */,
+			);
+			path = KYNetworking;
+			sourceTree = "<group>";
+		};
+		EAB916C022656274002C9061 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EAB916C122656CE9002C9061 /* KYHTTPManager.h */,
+				EAB916C222656CE9002C9061 /* KYHTTPManager.m */,
+				EA86D1EA226D9DDF003D9A05 /* NSString+KYNetworking.h */,
+				EA86D1EB226D9DDF003D9A05 /* NSString+KYNetworking.m */,
+				EA2DBE4A226F092500A1D9C9 /* KYHttpResponseModel.h */,
+				EA2DBE4B226F092500A1D9C9 /* KYHttpResponseModel.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAB916A6226561EF002C9061 /* KYNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAB916BD226561F8002C9061 /* Build configuration list for PBXNativeTarget "KYNetworking" */;
+			buildPhases = (
+				11FFDB19C0712B50ACBDA994 /* [CP] Check Pods Manifest.lock */,
+				EAB916A3226561EF002C9061 /* Sources */,
+				EAB916A4226561EF002C9061 /* Frameworks */,
+				EAB916A5226561EF002C9061 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KYNetworking;
+			productName = KYNetworking;
+			productReference = EAB916A7226561EF002C9061 /* KYNetworking.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAB9169F226561EF002C9061 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Key;
+				TargetAttributes = {
+					EAB916A6226561EF002C9061 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+				};
+			};
+			buildConfigurationList = EAB916A2226561EF002C9061 /* Build configuration list for PBXProject "KYNetworking" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAB9169E226561EF002C9061;
+			productRefGroup = EAB916A8226561EF002C9061 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAB916A6226561EF002C9061 /* KYNetworking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAB916A5226561EF002C9061 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAB916B7226561F8002C9061 /* LaunchScreen.storyboard in Resources */,
+				EAB916B4226561F8002C9061 /* Assets.xcassets in Resources */,
+				EAB916B2226561EF002C9061 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11FFDB19C0712B50ACBDA994 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KYNetworking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAB916A3226561EF002C9061 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAB916C322656CE9002C9061 /* KYHTTPManager.m in Sources */,
+				EAB916AF226561EF002C9061 /* ViewController.m in Sources */,
+				EA86D1EC226D9DDF003D9A05 /* NSString+KYNetworking.m in Sources */,
+				EA319508227153B900C93134 /* HttpManager.m in Sources */,
+				EAB916BA226561F8002C9061 /* main.m in Sources */,
+				EA2DBE4C226F092500A1D9C9 /* KYHttpResponseModel.m in Sources */,
+				EAB916AC226561EF002C9061 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EAB916B0226561EF002C9061 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAB916B1226561EF002C9061 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAB916B5226561F8002C9061 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAB916B6226561F8002C9061 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAB916BB226561F8002C9061 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EAB916BC226561F8002C9061 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAB916BE226561F8002C9061 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E2C6970D44A68975FD85C07 /* Pods-KYNetworking.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = KYNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.KYNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAB916BF226561F8002C9061 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CDEEE57EF169099A2AF560C /* Pods-KYNetworking.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = KYNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.KYNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAB916A2226561EF002C9061 /* Build configuration list for PBXProject "KYNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAB916BB226561F8002C9061 /* Debug */,
+				EAB916BC226561F8002C9061 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAB916BD226561F8002C9061 /* Build configuration list for PBXNativeTarget "KYNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAB916BE226561F8002C9061 /* Debug */,
+				EAB916BF226561F8002C9061 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAB9169F226561EF002C9061 /* Project object */;
+}
