@@ -309,8 +309,16 @@
     } else if ([parameters isKindOfClass:[NSDictionary class]]) {
         result = [self appendingURLParametersWithDictionary:parameters];
     }
-    result = [NSString stringWithFormat:@"%@%@%@",result,(result.length > 0 ? @"&" : @""), url];
+    NSString *fullUrl = url;
+    if ([self cacheKeyContainsBaseUrl]) {
+        fullUrl = [NSString stringWithFormat:@"%@%@",[self baseURL],url];
+    }
+    result = [NSString stringWithFormat:@"%@%@%@",result,(result.length > 0 ? @"&" : @""), fullUrl];
     return [result KYN_MD5];
+}
+- (BOOL)cacheKeyContainsBaseUrl
+{
+    return YES;
 }
 //字典转url参数字符串
 - (NSString *)appendingURLParametersWithDictionary:(NSDictionary *)dict

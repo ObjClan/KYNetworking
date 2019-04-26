@@ -78,6 +78,10 @@
     }
     return [super getCacheKeyWithUrl:url parameters:params.copy];
 }
+- (BOOL)cacheKeyContainsBaseUrl
+{
+    return NO;
+}
 - (void)sendRequestWithUrl:(NSString *)url
                 parameters:(id)parameters
                   progress:(void (^)(NSProgress * _Nonnull))progress

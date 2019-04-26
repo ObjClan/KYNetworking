@@ -97,6 +97,10 @@ typedef NS_ENUM(NSInteger, KYResponseSerializerType) {
 - (NSString *)getCacheKeyWithUrl:(NSString *)url parameters:(id)parameters;
 
 /**
+ 缓存的key是否包含baseUrl，默认为YES包含
+ */
+- (BOOL)cacheKeyContainsBaseUrl;
+/**
  响应结果转换，默认回调原数据,转换后回调转换后的数据。
  如:返回的原数据为data类型想要转化为NSDictionary
  @param response 原response
