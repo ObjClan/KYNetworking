@@ -21,17 +21,28 @@
     params[@"phone"] = @"13211111111";
     params[@"callback"] = @"phone";
     params[@"cmd"] = @"1059";
+    HttpManager *manager = [HttpManager manager];
+    //POST
+    manager.method = KYHTTPMethodPOST;
     //使用缓存
-    [[HttpManager shareManager] sendRequestWithUrl:@"callback"
+    [manager sendRequestWithUrl:@"callback"
                                         parameters:params cache:YES
                                       cacheTimeout:10
                                           callBack:^(BOOL isCache, id  _Nullable response, NSError * _Nullable error) {
         
     } originCallBack:nil];
-    //不运行重复请求
+    // 默认GET
+    //使用缓存
+    [[HttpManager manager] sendRequestWithUrl:@"callback"
+                     parameters:params cache:YES
+                   cacheTimeout:10
+                       callBack:^(BOOL isCache, id  _Nullable response, NSError * _Nullable error) {
+                           
+                       } originCallBack:nil];
+    
+    //不允许重复请求
     for (int i = 0; i < 100; i++) {
-        sleep(0.1);
-        [[HttpManager shareManager] sendRequestWithUrl:@"callback"
+        [[HttpManager manager] sendRequestWithUrl:@"callback"
                                             parameters:params
                                           denyRepeated:YES
                                               callBack:^(id  _Nullable response, NSError * _Nullable error) {

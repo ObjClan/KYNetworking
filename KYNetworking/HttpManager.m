@@ -8,26 +8,14 @@
 
 #import "HttpManager.h"
 @implementation HttpManager
-+ (instancetype)shareManager
-{
-    static dispatch_once_t onceToken;
-    static HttpManager *_manager = nil;
-    dispatch_once(&onceToken, ^{
-        _manager = [[HttpManager alloc] init];
-    });
-    return _manager;
-}
-- (KYHTTPMethod)httpMethod
-{
-    return KYHTTPMethodGET;
-}
+
 - (NSString *)baseURL
 {
     return @"https://www.baifubao.com/";
 }
 - (NSDictionary *)httpHeaderField
 {
-    return nil;
+    return @{@"token" : @"111111",@"pwd" : @"222222"};
 }
 - (KYRequestSerializerType)requestSerializerType
 {
@@ -37,10 +25,7 @@
 {
     return KYResponseSerializerTypeHTTP;
 }
-- (NSTimeInterval)requestTimeout
-{
-    return 20.0f;
-}
+
 - (BOOL)allowInvalidCertificates
 {
     return NO;
@@ -53,6 +38,7 @@
 {
     id params = parameters;
     NSLog(@"%@,请求参数:\n%@",url,params);
+    [self setValue:@"333333333333" forHTTPHeaderField:@"pid"];
     return params;
 }
 - (BOOL)shouldSaveResponseToCache:(id)response

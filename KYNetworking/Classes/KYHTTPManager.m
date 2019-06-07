@@ -9,53 +9,40 @@
 #import "KYHTTPManager.h"
 #import "NSString+KYNetworking.h"
 #import "KYHttpResponseModel.h"
+#import "KYHTTPGlobalManager.h"
 @interface KYHTTPManager ()
 @property (nonatomic, strong, readwrite)AFHTTPSessionManager *sessionManager;
-@property (nonatomic, strong) NSMutableArray<NSURLSessionTask *> *allTaskArray;
-@property (nonatomic, strong) dispatch_semaphore_t taskLock;
 @end
 @implementation KYHTTPManager
-@synthesize allTaskArray = _allTaskArray;
+
++ (instancetype)manager
+{
+    return [[[self class] alloc] init];
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.sessionManager = [AFHTTPSessionManager manager];
-        self.sessionManager.requestSerializer = [self requestSerializer];
+        _method = KYHTTPMethodGET;
+        _requestTimeout = 20.0f;
+        _sessionManager = [AFHTTPSessionManager manager];
+        _sessionManager.requestSerializer = [self requestSerializer];
         NSDictionary *httpHeaderField = [self httpHeaderField];
         for (NSString *key in httpHeaderField.allKeys) {
             NSString *value = httpHeaderField[key];
-            [self.sessionManager.requestSerializer setValue:value forHTTPHeaderField:key];
+            [_sessionManager.requestSerializer setValue:value forHTTPHeaderField:key];
         }
-        self.sessionManager.requestSerializer.timeoutInterval = [self requestTimeout];
-        self.sessionManager.responseSerializer = [self responseSerializer];
-        self.sessionManager.securityPolicy.allowInvalidCertificates = [self allowInvalidCertificates];
-        self.sessionManager.securityPolicy.validatesDomainName = [self validatesDomainName];
+        _sessionManager.requestSerializer.timeoutInterval = _requestTimeout;
+        _sessionManager.responseSerializer = [self responseSerializer];
+        _sessionManager.securityPolicy.allowInvalidCertificates = [self allowInvalidCertificates];
+        _sessionManager.securityPolicy.validatesDomainName = [self validatesDomainName];
         NSSet *acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript",@"application/javascript", @"text/json",@"text/html",@"text/css", nil];
-        self.sessionManager.responseSerializer.acceptableContentTypes = acceptableContentTypes;
+        _sessionManager.responseSerializer.acceptableContentTypes = acceptableContentTypes;
     }
     return self;
 }
-- (NSMutableArray<NSURLSessionTask *> *)allTaskArray
-{
-    if (!_allTaskArray) {
-        _allTaskArray = [[NSMutableArray alloc] init];
-    }
-    return _allTaskArray;
-}
-- (void)setAllTaskArray:(NSMutableArray<NSURLSessionTask *> *)allTaskArray
-{
-    dispatch_semaphore_wait(self.taskLock, DISPATCH_TIME_FOREVER);
-    _allTaskArray = allTaskArray;
-    dispatch_semaphore_signal(self.taskLock);
-}
-- (dispatch_semaphore_t)taskLock
-{
-    if (!_taskLock) {
-        _taskLock = dispatch_semaphore_create(1);
-    }
-    return _taskLock;
-}
+
 #pragma mark ------------发送请求，不传参数，不做其他操作-------------------
 - (void)sendRequestWithUrl:(NSString *)url callBack:(KYHTTPCallBack)callBack
 {
@@ -144,7 +131,7 @@
             originCallBack:(KYHTTPCallBack)originCallBack
 {
     id params = [self extendedParameters:parameters url:url];
-    if (denyRepeated && [self hasSameUrl:url]) {
+    if (denyRepeated && [[KYHTTPGlobalManager shareManager] hasSameUrl:url]) {
         NSLog(@"\n----重复的请求，url:%@,该接口不允许同时存在多个请求！\n",url);
         return;
     }
@@ -179,9 +166,7 @@
             model.time = [[NSDate date] timeIntervalSince1970];
             [model bg_saveOrUpdate];
         }
-        dispatch_semaphore_wait(self.taskLock, DISPATCH_TIME_FOREVER);
-        [self.allTaskArray removeObject:task];
-        dispatch_semaphore_signal(self.taskLock);
+        [[KYHTTPGlobalManager shareManager] removeTask:task];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (!hasCache && callBack) {
             callBack(NO ,nil, error);
@@ -189,9 +174,7 @@
         if (originCallBack) {
             originCallBack(nil, error);
         }
-        dispatch_semaphore_wait(self.taskLock, DISPATCH_TIME_FOREVER);
-        [self.allTaskArray removeObject:task];
-        dispatch_semaphore_signal(self.taskLock);
+        [[KYHTTPGlobalManager shareManager] removeTask:task];
     }];
 }
 - (NSURLSessionTask *)sendRequestWithUrl:(NSString *)url
@@ -201,9 +184,8 @@
                    failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
 {
     NSString *fullUrl = [NSString stringWithFormat:@"%@%@",[self baseURL],url];
-    KYHTTPMethod method = [self httpMethod];
     NSURLSessionTask *task = nil;
-    switch (method) {
+    switch (self.method) {
         case KYHTTPMethodGET:
             task = [self.sessionManager GET:fullUrl parameters:parameters progress:progress success:success failure:failure];
             break;
@@ -230,15 +212,10 @@
         default:
             break;
     }
-    dispatch_semaphore_wait(self.taskLock, DISPATCH_TIME_FOREVER);
-    [self.allTaskArray addObject:task];
-    dispatch_semaphore_signal(self.taskLock);
+    [[KYHTTPGlobalManager shareManager] addTask:task];
     return task;
 }
-- (KYHTTPMethod)httpMethod
-{
-    return KYHTTPMethodGET;
-}
+
 - (NSString *)baseURL
 {
     return nil;
@@ -246,6 +223,10 @@
 - (NSDictionary *)httpHeaderField
 {
     return nil;
+}
+- (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field
+{
+    [_sessionManager.requestSerializer setValue:value forHTTPHeaderField:field];
 }
 - (KYRequestSerializerType)requestSerializerType
 {
@@ -275,10 +256,7 @@
             return [AFHTTPResponseSerializer serializer];
     }
 }
-- (NSTimeInterval)requestTimeout
-{
-    return 20.0f;
-}
+
 - (BOOL)allowInvalidCertificates
 {
     return NO;
@@ -334,34 +312,10 @@
     }
     return result;
 }
+
 - (void)cancelTastWithUrl:(NSString *)url
 {
-    dispatch_semaphore_wait(self.taskLock, DISPATCH_TIME_FOREVER);
-    for (int i = 0; i < self.allTaskArray.count; i++) {
-        NSURLSessionTask *task = self.allTaskArray[i];
-        NSString *path = task.currentRequest.URL.path;
-        if ([url isEqualToString:path]) {
-            [task cancel];
-            break;
-        }
-    }
-    dispatch_semaphore_signal(self.taskLock);
+    [[KYHTTPGlobalManager shareManager] cancelTastWithUrl:url];
 }
-- (BOOL)hasSameUrl:(NSString *)url
-{
-    dispatch_semaphore_wait(self.taskLock, DISPATCH_TIME_FOREVER);
-    for (int i = 0; i < self.allTaskArray.count; i++) {
-        NSURLSessionTask *task = self.allTaskArray[i];
-        NSString *path = task.currentRequest.URL.path;
-        if (![url hasPrefix:@"/"]) {
-            path = [path substringFromIndex:1];
-        }
-        if ([url isEqualToString:path]) {
-            dispatch_semaphore_signal(self.taskLock);
-            return YES;
-        }
-    }
-    dispatch_semaphore_signal(self.taskLock);
-    return NO;
-}
+
 @end

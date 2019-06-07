@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^KYHTTPCallBack)(id _Nullable response, NSError * _Nullable error);
 typedef void(^KYHTTPUseCacheCallBack)(BOOL isCache,id _Nullable response, NSError * _Nullable error);
 typedef NS_ENUM(NSInteger, KYHTTPMethod) {
+    KYHTTPMethodGET = 0,
     KYHTTPMethodPOST,
-    KYHTTPMethodGET,
     KYHTTPMethodPUT,
     KYHTTPMethodPATCH,
     KYHTTPMethodDELETE,
@@ -32,11 +32,19 @@ typedef NS_ENUM(NSInteger, KYResponseSerializerType) {
 };
 
 @interface KYHTTPManager : NSObject
-
 /**
  请求方法，默认GET
  */
-- (KYHTTPMethod)httpMethod;
+@property (nonatomic, assign) KYHTTPMethod method;
+/**
+ 请求超时，默认20秒
+ */
+@property (nonatomic, assign) NSTimeInterval requestTimeout;
+/**
+ 获取实例对象
+ */
++ (instancetype)manager;
+
 
 /**
  Scheme+host
@@ -44,9 +52,16 @@ typedef NS_ENUM(NSInteger, KYResponseSerializerType) {
 - (NSString *)baseURL;
 
 /**
- 请求headerField
+ 初始化一组header
  */
 - (NSDictionary *)httpHeaderField;
+
+/**
+ 添加一个header键值对
+ @param value value
+ @param field field
+ */
+- (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field;
 
 /**
  请求参数序列化方式，默认AFHTTPRequestSerializer
@@ -58,10 +73,6 @@ typedef NS_ENUM(NSInteger, KYResponseSerializerType) {
  */
 - (KYResponseSerializerType)responseSerializerType;
 
-/**
- 请求超时，默认20秒
- */
-- (NSTimeInterval)requestTimeout;
 /**
  HTTPS是否允许无效证书，默认为NO不允许
  */
@@ -82,7 +93,7 @@ typedef NS_ENUM(NSInteger, KYResponseSerializerType) {
 - (id)extendedParameters:(id)parameters url:(NSString *)url;
 /**
  需要将响应结果保存到缓存的条件,这里的resonse是经过analysisObjectFromResponse:url:方法处理过的
- 由子类重写，根据respone的内容判断是否保存,因为http响应状态为200只能说明与服务端lian'tong
+ 由子类重写，根据respone的内容判断是否保存,因为http响应状态为200只能说明与服务端连通
  如response为@{“status” : 1，@“data” : @{@"token" : @"1111"}},需要根据status的状态确定是否保存
  @param response 响应结果
  @return YES保存，NO不保存

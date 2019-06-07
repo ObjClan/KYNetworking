@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HttpManager : KYHTTPManager
-+ (instancetype)shareManager;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,6 +11,7 @@
 		EA2DBE4C226F092500A1D9C9 /* KYHttpResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2DBE4B226F092500A1D9C9 /* KYHttpResponseModel.m */; };
 		EA319508227153B900C93134 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA319507227153B900C93134 /* HttpManager.m */; };
 		EA86D1EC226D9DDF003D9A05 /* NSString+KYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EA86D1EB226D9DDF003D9A05 /* NSString+KYNetworking.m */; };
+		EA93203022A8F45B005826B9 /* KYHTTPGlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93202F22A8F45B005826B9 /* KYHTTPGlobalManager.m */; };
 		EAB916AC226561EF002C9061 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB916AB226561EF002C9061 /* AppDelegate.m */; };
 		EAB916AF226561EF002C9061 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB916AE226561EF002C9061 /* ViewController.m */; };
 		EAB916B2226561EF002C9061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB916B0226561EF002C9061 /* Main.storyboard */; };
@@ -30,6 +31,8 @@
 		EA319507227153B900C93134 /* HttpManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
 		EA86D1EA226D9DDF003D9A05 /* NSString+KYNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+KYNetworking.h"; sourceTree = "<group>"; };
 		EA86D1EB226D9DDF003D9A05 /* NSString+KYNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+KYNetworking.m"; sourceTree = "<group>"; };
+		EA93202E22A8F45B005826B9 /* KYHTTPGlobalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYHTTPGlobalManager.h; sourceTree = "<group>"; };
+		EA93202F22A8F45B005826B9 /* KYHTTPGlobalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYHTTPGlobalManager.m; sourceTree = "<group>"; };
 		EAB916A7226561EF002C9061 /* KYNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB916AA226561EF002C9061 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EAB916AB226561EF002C9061 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				EA86D1EB226D9DDF003D9A05 /* NSString+KYNetworking.m */,
 				EA2DBE4A226F092500A1D9C9 /* KYHttpResponseModel.h */,
 				EA2DBE4B226F092500A1D9C9 /* KYHttpResponseModel.m */,
+				EA93202E22A8F45B005826B9 /* KYHTTPGlobalManager.h */,
+				EA93202F22A8F45B005826B9 /* KYHTTPGlobalManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				EAB916AF226561EF002C9061 /* ViewController.m in Sources */,
 				EA86D1EC226D9DDF003D9A05 /* NSString+KYNetworking.m in Sources */,
 				EA319508227153B900C93134 /* HttpManager.m in Sources */,
+				EA93203022A8F45B005826B9 /* KYHTTPGlobalManager.m in Sources */,
 				EAB916BA226561F8002C9061 /* main.m in Sources */,
 				EA2DBE4C226F092500A1D9C9 /* KYHttpResponseModel.m in Sources */,
 				EAB916AC226561EF002C9061 /* AppDelegate.m in Sources */,
